@@ -134,6 +134,14 @@ app.get('/api/get/user', (req, res) =>{
 
 })
 
+app.get('/api/get/collector', (req, res) =>{
+
+  connection.query(`SELECT * FROM ${collectorDB}`, (err, rows, fields) =>{
+    res.send(rows)
+  });
+
+})
+
 app.get('/recordSearch', (req, res) =>{
 
   if(req.query.searchText != ''){
@@ -177,7 +185,7 @@ app.get('/idSearch', (req, res, next)=>{
 
   if(req.query.searchText != ''){
 
-    connection.query(`SELECT * FROM ${recordDB} where user_id = ` + req.query.searchText, (err, rows, fields) =>{
+    connection.query(`SELECT * FROM ${recordDB} WHERE user_id = ?`, req.query.searchText, (err, rows, fields) =>{
       res.render('user_id', {data : 'test list ejs', record : rows});
     });
 
