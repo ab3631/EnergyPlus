@@ -55,13 +55,22 @@
             </nav>
 
             <div id = "content">
-                
-                    <div class="search-box">
-                        <form action = "/recordSearch">
-                            <input type="text" class="search-txt" name="searchText" placeholder="번호를 입력해 주세요.">
-                            <input type="submit" class="search-btn" value = "">
-                        </form>
+
+                <form action = "/recordSearch">
+                    <div>
+                        <div class = "search-box1">
+                            <select id = 'list' name = 'list'>
+                                <option value = "id">번호</option>
+                                <option value = "collector_id">처리장</option>
+                                <option value = "gasstation_id">주유소</option>
+                            </select>
+                        </div>
+                        <div class = "search-box">
+                          <input type="text" class="search-txt" name="searchText" placeholder="번호를 입력해 주세요.">
+                          <input type="submit" class="search-btn" value = "">
+                        </div>
                     </div>
+                </form>
 
                 <% if (record != null && record.length > 0){ %>
 

@@ -146,9 +146,21 @@ app.get('/recordSearch', (req, res) =>{
 
   if(req.query.searchText != ''){
 
-    connection.query(`SELECT * FROM ${recordDB} WHERE id LIKE ? `, '%'  + req.query.searchText + '%', (err, rows, fields) =>{
-      res.render('record', {data : 'test list ejs', record : rows});
-    });
+    if(req.query.list == 'id'){
+      connection.query(`SELECT * FROM ${recordDB} WHERE id LIKE ? `, '%'  + req.query.searchText + '%', (err, rows, fields) =>{
+        res.render('record', {data : 'test list ejs', record : rows});
+      });
+    }
+    else if(req.query.list == 'collector_id'){
+      connection.query(`SELECT * FROM ${recordDB} WHERE collector_id LIKE ? `, '%'  + req.query.searchText + '%', (err, rows, fields) =>{
+        res.render('record', {data : 'test list ejs', record : rows});
+      });
+    }
+    else{
+      connection.query(`SELECT * FROM ${recordDB} WHERE gasstation_id LIKE ? `, '%'  + req.query.searchText + '%', (err, rows, fields) =>{
+        res.render('record', {data : 'test list ejs', record : rows});
+      });
+    }
 
   }
   else{

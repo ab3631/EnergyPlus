@@ -60,6 +60,26 @@ body{
     padding: 5px 30px;
 }
 
+.search-box1{
+  padding: 10px;
+  position: absolute;
+  top: 290px;
+  left: 470px;
+  transform: translate(50%,-50%);
+  height: 30px;
+  background-color: #fff;
+  border: 1px solid #b7c0bf;
+  border-radius: 30px;
+  transition: 0.4s;
+  box-shadow: 0px 0px .5px 1px #b7c0bf;
+  width: 65px;
+}
+
+#list{
+  margin-top : 5px;
+  border-style : none;
+}
+
 .search-box{
   padding: 10px;
   position: absolute;
